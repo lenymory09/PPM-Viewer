@@ -5,28 +5,28 @@ const legends = document.querySelector("#legend")
 
 
 async function readBytes(file) {
-    // return await new Promise((resolve, _) => {
-    //     const reader = new FileReader();
-    //     let fileByteArray = [];
-    //
-    //     reader.readAsArrayBuffer(file);
-    //     reader.onloadend = async (evt) => {
-    //         if (evt.target.readyState === FileReader.DONE) {
-    //             const arrayBuffer = evt.target.result,
-    //                 array = new Uint8Array(arrayBuffer);
-    //             for (const a of array) {
-    //                 fileByteArray.push(a);
-    //             }
-    //         }
-    //
-    //         resolve(fileByteArray)
-    //     }
-    // })
-    return Array.from(await file.bytes())
+    return await new Promise((resolve, _) => {
+        const reader = new FileReader();
+        let fileByteArray = [];
+
+        reader.readAsArrayBuffer(file);
+        reader.onloadend = async (evt) => {
+            if (evt.target.readyState === FileReader.DONE) {
+                const arrayBuffer = evt.target.result,
+                    array = new Uint8Array(arrayBuffer);
+                for (const a of array) {
+                    fileByteArray.push(a);
+                }
+            }
+
+            resolve(fileByteArray)
+        }
+    })
 }
 
 async function displayImage(imageFile) {
     const texte = (await imageFile.text()).split("\n");
+
     const dimensions = texte.at(2);
     const [width, height] = dimensions.split(" ").map(number => parseInt(number));
 
