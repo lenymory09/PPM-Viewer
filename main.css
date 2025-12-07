@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+#canva {
+    border: 2px solid black;
+}
+body {
+    background: #571F4E;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: white;
+}
+
+.input_image_section,
+#legend {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.input_image_section {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    gap: 10px;
+    margin-inline: auto;
+}
+
+.affichage_image_section {
+    text-align: center;
+}
