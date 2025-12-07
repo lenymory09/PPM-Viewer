@@ -22,7 +22,7 @@ async function readBytes(file) {
     //         resolve(fileByteArray)
     //     }
     // })
-    return await file.bytes()
+    return Array.from(await file.bytes())
 }
 
 async function displayImage(imageFile) {
